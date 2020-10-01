@@ -56,7 +56,7 @@ while 1 > 0:
             print("RULES")
             print(
                 "You start with 5 lives\nIf you win you get an extra life\nIf you lose you lose a "
-                "life\nIf you draw your lives stay the same\nDon't use capitols\n you can type exit at "
+                "life\nIf you draw your lives stay the same\n'r' for rock, 'p' for paper and 's' for scissors\nDon't use capitols\n you can type exit at "
                 "anytime to leave the game")
             print("--------------------------------------------")
             print("The computers also got lives\nGood Luck!")
@@ -67,32 +67,32 @@ while 1 > 0:
                 computer = random.choice(computer)
 
                 # rock if
-                if rps == "rock" and computer == "paper":
+                if rps == "r" and computer == "paper":
                     loseFunc("paper", lose)
-                if rps == "rock" and computer == "scissors":
+                if rps == "r" and computer == "scissors":
                     winFunc("scissors", win)
 
                 # paper if
-                if rps == "paper" and computer == "scissors":
+                if rps == "p" and computer == "scissors":
                     loseFunc("scissors", lose)
-                if rps == "paper" and computer == "rock":
+                if rps == "p" and computer == "rock":
                     winFunc("rock", win)
 
                 # scissors if
-                if rps == "scissors" and computer == "rock":
+                if rps == "s" and computer == "rock":
                     loseFunc("rock", lose)
-                if rps == "scissors" and computer == "paper":
+                if rps == "s" and computer == "paper":
                     winFunc("paper", win)
 
-                # berabere
-                if rps == computer == "rock":
+                # draw if
+                if rps == "r" and computer == "rock":
                     drawFunc("rock")
-                if rps == computer == "scissors":
+                if rps == "s" and computer == "scissors":
                     drawFunc("scissors")
-                if rps == computer == "paper":
+                if rps == "p" and computer == "paper":
                     drawFunc("paper")
 
-                # yaparken çalışıyor mu diye kontrol etmek için kullandığım bir takım şeyler
+                # things I used to check if codes work
                 if rps == "display lives":
                     print(lives)
                 if rps == "display score":
@@ -103,17 +103,15 @@ while 1 > 0:
                 # lives
                 if lives == 0 or rps == "test":
                     print(
-                        "Oynadığınız için teşekkürler.\nCanların bitti\nKazandığın oyun sayısı:",
-                        score, "\nBerabere kaldığın zamanların sayısı:", drew)
-                    stop = input(
-                        "Çıkış yapmak için herhangi bir tuşa basınız.")
+                        "Thanks for playing.\nYou've ran out of lives\nYou won",
+                        score, "times.\nYou've drawn", drew, "times", drew)
+                    stop = input("Press any key to exit.")
                     exit()
                 if compLives == 0:
                     print(
-                        "Oynadığınız için teşekkürler.\nBilgisayarı yendin!\nKazandığın oyun sayısı:",
-                        score, "\nBerabere kaldığın zamanların sayısı:", drew)
-                    stop = input(
-                        "Çıkış yapmak için herhangi bir tuşa basınız.")
+                        "Thanks for playing.\nYou've defeated the computer\nYou won",
+                        score, "times.\nYou've drawn", drew, "times")
+                    stop = input("Press any key to exit.")
                     exit()
 
                 # end
